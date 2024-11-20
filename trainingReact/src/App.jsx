@@ -1,11 +1,13 @@
 import './App.css';
+import ProductsCard from './Components/Products/ProductsCard';
+import Button from './Components/Button/Button';
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-    </div>
+    <>
+      <ProductsCard />
+      <Button />
+    </>
   );
 };
 
