@@ -6,10 +6,10 @@ export default function ProductCard() {
   (в который при помощи метода map() 
   записываем нужные нам id(используем для key), title, description))
   */
-  const productsList = tasks.map((product) => (
-    <li key={product.id}>
-      {product.title}: {product.description}
+  const taskList = tasks.map((tasks) => (
+    <li key={tasks.id}>
+      {tasks.title}: {tasks.description}
     </li>
   ));
-  return <ul style={{ color: 'red' }}>{productsList}</ul>;
+  return <ul style={{ color: 'red' }}>{taskList}</ul>;
 }
