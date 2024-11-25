@@ -24,3 +24,12 @@ body {
   font-weight: 400;
   opacity: 0.5;
 }
+
+.inputFilter{
+  margin: 10px 52px;
+}
+
+.result {
+  text-align: left;
+  color: rgb(42, 17, 29);
+}

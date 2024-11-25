@@ -1,15 +1,44 @@
+import { useState } from 'react';
 import { tasks } from '../../../data';
 
-//создаём функцию которая будет нам выводить содержимое объекта tasks
 export default function ProductCard() {
-  /*берём данные из tasks и создаём productsList 
-  (в который при помощи метода map() 
-  записываем нужные нам id(используем для key), title, description))
-  */
+  const [filter, setFilter] = useState('');
+
+  const changeHandler = (e) => {
+    setFilter(e.target.value);
+  };
+
   const taskList = tasks.map((tasks) => (
     <li key={tasks.id}>
       {tasks.title}: {tasks.description}
     </li>
   ));
-  return <ul style={{ color: 'red' }}>{taskList}</ul>;
+
+  return (
+    <>
+      <input
+        className="inputFilter"
+        type="text"
+        value={taskList.title}
+        onChange={changeHandler}
+        placeholder="Поиск..."
+      />
+      <ul>
+        <h3 style={{ color: 'black' }}>Сложность заданий:</h3>
+        {tasks
+          .filter((task) =>
+            task.title.toLowerCase().includes(filter.toLowerCase()),
+          )
+          .map((task) => {
+            return (
+              <>
+                <li className="result" key={task.id}>
+                  {task.title} : {task.description}
+                </li>
+              </>
+            );
+          })}
+      </ul>
+    </>
+  );
 }
